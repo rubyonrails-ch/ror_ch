@@ -8,16 +8,16 @@ require 'mocha/mini_test'
 Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new]
 DatabaseCleaner[:mongoid].strategy = :truncation
 
-class ActiveSupport::TestCase
+module ActiveSupport
+  class TestCase
+    def setup
+      DatabaseCleaner.clean # reset database
+      super
+    end
 
-  def setup
-    DatabaseCleaner.clean # reset database
-    super
+    def teardown
+      ActionMailer::Base.deliveries.clear
+      super
+    end
   end
-
-  def teardown
-    ActionMailer::Base.deliveries.clear
-    super
-  end
-
 end
