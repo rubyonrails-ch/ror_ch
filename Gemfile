@@ -27,6 +27,7 @@ group :test do
   gem 'mocha' # mocking
   gem 'fabrication' # fixtures
   gem 'database_cleaner'
+  gem "codeclimate-test-reporter", require: false
 end
 
 group :doc do
