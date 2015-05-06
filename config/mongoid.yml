@@ -97,5 +97,3 @@ production:
   sessions:
     default:
       uri: <%= Figaro.env.mongolab_uri %>
-      options:
-        ssl: true
