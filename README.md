@@ -3,9 +3,22 @@
 
 Very simple single page app for rubyonrails.ch - http://rorch.herokuapp.com
 
+## Contribute
+
+### Configure environment
+
+```cp config/application.example.yml config/application.yml```
+
+* [Meetup API key](https://secure.meetup.com/meetup_api/key/)
+
+
+### Code style
+
+```rubocop```
 
 ## Inspiration
 
 * http://techup.ch/
 * http://hamburg.onruby.de/
 * http://ruvetia.org/
+* http://www.arduino.cc/en/Main/Donate

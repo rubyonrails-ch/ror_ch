@@ -1,4 +1,4 @@
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -11,6 +11,12 @@ require 'mocha/mini_test'
 Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new]
 DatabaseCleaner[:mongoid].strategy = :truncation
 
+VCR.configure do |c|
+  c.cassette_library_dir = 'test/vcr'
+  c.hook_into :webmock
+  c.ignore_hosts 'codeclimate.com'
+end
+
 module ActiveSupport
   class TestCase
     def setup
@@ -21,6 +27,12 @@ module ActiveSupport
     def teardown
       ActionMailer::Base.deliveries.clear
       super
+    end
+
+    def mock_meetup(resource)
+      VCR.use_cassette("meetup_#{resource}", record: :once, match_requests_on: [:method, :host, :path]) do
+        yield
+      end
     end
   end
 end

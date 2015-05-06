@@ -96,6 +96,6 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      uri: <%= Figaro.env.mongolab_uri %>
       options:
         ssl: true
