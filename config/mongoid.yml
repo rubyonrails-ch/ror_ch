@@ -1,13 +1,7 @@
 development:
-  # Configure available database sessions. (required)
   sessions:
-    # Defines the default session. (required)
     default:
-      # Defines the name of the default database that Mongoid can connect to.
-      # (required).
       database: ror_development
-      # Provides the hosts the default session can connect to. Must be an array
-      # of host:port pairs. (required)
       hosts:
         - localhost:27017
       options:
@@ -53,7 +47,7 @@ development:
         
         # Whether connections should use SSL. (default: nil/false)
         # ssl: false
-        
+
         # Whether Moped will use the existing seeds/nodes to find other peers.
         # (default: true)
         # auto_discover: true
@@ -96,7 +90,12 @@ test:
         - localhost:27017
       options:
         read: primary
-        # In the test environment we lower the retries and retry interval to
-        # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+
+production:
+  sessions:
+    default:
+      uri: <%= Figaro.env.mongolab_uri %>
+      options:
+        ssl: true
