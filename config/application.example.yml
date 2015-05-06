@@ -1,6 +1,7 @@
 development:
-  secret_key_base: 8ed1edcb29c3c2de2d749e4a5a5050ea2fa045033c103abdcd873f0aa5a8203451c3e3920b1e4a1afe4130ec42ba2acc30f37e5a09d918b12d0d959a22cf5cc8
+  secret_key_base: 123
   meetup_api_key: 123
+  rollbar_access_token: 123
 
 test:
-  secret_key_base: 9120ce9205d4cbf3e981ffb83e0373592142a931ff28a6518931b648c3258fade47d6df4daf4621cb8542b359b288d2dae21c85f7b7ad5b1aa10dec9ec8c90e2
+  secret_key_base: 123

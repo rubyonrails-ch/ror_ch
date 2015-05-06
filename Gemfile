@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # app
 gem 'ruby_meetup2' # meetup api client
 gem 'figaro' # rails app configuration via ENV
+gem 'rollbar', '~> 1.5.1' # error reporting
 
 group :development, :test do
   gem 'byebug'
