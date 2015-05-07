@@ -9,7 +9,7 @@ class Event
   field :status, type: String
   field :address, type: String
 
-  validates :meetup_id, presence: true
+  validates :meetup_id, presence: true, uniqueness: true
   validates :name, presence: true
   validates :description, presence: true
   validates :time, presence: true
