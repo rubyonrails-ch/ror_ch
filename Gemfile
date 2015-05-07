@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'ruby_meetup2' # meetup api client
 gem 'figaro' # rails app configuration via ENV
 gem 'rollbar', '~> 1.5.1' # error reporting
+gem 'sucker_punch' # background processing
+gem 'fist_of_fury' # recurring jobs for sucker_punch
 
 group :development, :test do
   gem 'byebug'
