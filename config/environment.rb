@@ -2,4 +2,9 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-Rails.application.initialize!
+begin
+  Rails.application.initialize!
+rescue Exception => e
+  Rollbar.error(e)
+  raise
+end
