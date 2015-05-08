@@ -1,3 +1,5 @@
+meetup_group_id: 1700659
+
 development:
   secret_key_base: 123
   meetup_api_key: 123

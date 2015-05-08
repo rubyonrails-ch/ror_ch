@@ -1,12 +1,11 @@
 class Meetup
-  GROUP_ID = 1_700_659
 
   def client
     @client ||= RubyMeetup::ApiKeyClient.new
   end
 
   def events
-    call_api('events', group_id: GROUP_ID)
+    call_api('events', group_id: Figaro.env.meetup_group_id)
   end
 
   def participants(event_meetup_id)
