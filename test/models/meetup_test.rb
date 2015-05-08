@@ -5,7 +5,7 @@ class MeetupTest < ActiveSupport::TestCase
     let(:meetup_events) { mock_meetup { Meetup.new.events } }
 
     it 'should get events from meetup api' do
-      assert_equal 26, meetup_events.count
+      assert_equal 5, meetup_events.count
     end
 
     it 'should return json' do

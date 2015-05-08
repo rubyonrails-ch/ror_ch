@@ -5,7 +5,7 @@ class Meetup
   end
 
   def events
-    call_api('events', group_id: Figaro.env.meetup_group_id)
+    call_api('events', group_id: Figaro.env.meetup_group_id, page: 5)
   end
 
   def participants(event_meetup_id)
