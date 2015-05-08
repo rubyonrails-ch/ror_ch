@@ -29,8 +29,8 @@ module ActiveSupport
       super
     end
 
-    def mock_meetup(resource)
-      VCR.use_cassette("meetup_#{resource}", record: :once, match_requests_on: [:method, :host, :path]) do
+    def mock_meetup
+      VCR.use_cassette('meetup', record: :new_episodes, match_requests_on: [:method, :host, :path]) do
         yield
       end
     end

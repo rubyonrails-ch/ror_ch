@@ -1,6 +1,8 @@
 class Event
   include Mongoid::Document
 
+  embeds_many :participants
+
   field :meetup_id, type: String
   field :name, type: String
   field :description, type: String

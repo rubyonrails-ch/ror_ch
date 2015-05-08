@@ -1,6 +1,15 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   RunRailsCops: true
   Exclude:
       - 'bin/*'
+      - 'config/environment.rb'
+
+Metrics/LineLength:
+  Max: 112
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+
+Style/Documentation:
+  Enabled: false
