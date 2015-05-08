@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @events = Event.all.asc(:time)
+    @events = Event.asc(:time).gt(time: Time.now.beginning_of_day)
   end
 end
