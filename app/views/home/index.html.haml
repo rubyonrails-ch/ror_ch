@@ -1,9 +1,15 @@
 %h1 Ruby on Rails Switzerland user group
 
-%ul
+%ul.events
   - @events.each do |event|
-    %li
+    %li.event
       %h2= link_to event.name, event.url
       %p= event.time.to_s(:short)
       - if event.address
         %p= event.address
+
+        .participants
+          - event.participants.each do |participant|
+            - if participant.image_url
+              = image_tag participant.image_url, alt: participant.name, title: participant.name, size: '40x40', class: "participant status-#{participant.status}"
+
