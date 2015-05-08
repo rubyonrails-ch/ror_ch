@@ -1,11 +1,10 @@
 class Meetup
-
   def client
     @client ||= RubyMeetup::ApiKeyClient.new
   end
 
   def events
-    call_api('events', group_id: Figaro.env.meetup_group_id, page: 5, order: 'time', desc: false)
+    call_api('events', group_id: Figaro.env.meetup_group_id, page: 5)
   end
 
   def participants(event_meetup_id)
