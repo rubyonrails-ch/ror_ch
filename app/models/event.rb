@@ -17,4 +17,7 @@ class Event
   validates :time, presence: true
   validates :url, presence: true
   validates :status, presence: true
+
+  index(time: 1) # order and filter by time
+  index({ meetup_id: 1 }, unique: true) # find_or_create_by
 end
