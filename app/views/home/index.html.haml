@@ -1,12 +1,14 @@
-%h1 Ruby on Rails Switzerland user group
-
-%ul.events
+%ul.events.list-unstyled
   - @events.each do |event|
-    %li.event
-      %h2= link_to event.name, event.url
-      %p= event.time.to_s(:short)
-      - if event.address
-        %p= event.address
+    %li.event.row
+      .col-md-2.text-right
+        %span.label.label-default= event.time.to_s(:short)
+      .col-md-10
+        %h3
+          = link_to event.name, event.url
+
+        - if event.address
+          = event.address
 
         .participants
           - event.participants.each do |participant|
