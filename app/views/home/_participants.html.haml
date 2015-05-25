@@ -1,0 +1,4 @@
+.participants
+  - participants.each do |participant|
+    - if participant.image_url
+      = image_tag participant.image_url, alt: participant.name, title: participant.name, size: '40x40', class: "participant status-#{participant.status}"
