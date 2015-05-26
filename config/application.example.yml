@@ -1,9 +1,9 @@
-meetup_group_id: 1700659
+meetup_group_id: "1700659"
 
 development:
-  secret_key_base: 123
-  meetup_api_key: 123
-  rollbar_access_token: 123
+  secret_key_base: "123"
+  meetup_api_key: "123"
+  rollbar_access_token: "123"
 
 test:
-  secret_key_base: 123
+  secret_key_base: "123"
