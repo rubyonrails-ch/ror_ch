@@ -1,4 +1,5 @@
-class MeetupJob < ActiveJob::Base
+class MeetupJob
+  include SuckerPunch::Job
   include FistOfFury::Recurrent
 
   def perform
