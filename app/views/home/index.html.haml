@@ -1,10 +1,20 @@
 %ul.events.list-unstyled
   - @events.each_with_index do |event, index|
-    %li.event.row
+    - is_next = index == 0
+    %li{ class: ['event', 'row', ('next' if is_next)] }
       .col-md-2.text-right
         %span.label.label-default= event.time.to_s(:short)
       .col-md-10
-        %h3= link_to event.name, event.url
+        - event_link = link_to event.name, event.url
+        - if is_next
+          %h3= event_link
+        - else
+          %h4= event_link
         %p= link_to event.address, maps_url(event.address), class: 'address' if event.address
 
-        = render 'participants', participants: event.participants if index == 0
+        = render 'participants', participants: event.participants if is_next
+
+  %li.event.row.more
+    .col-md-2
+    .col-md-10
+      = link_to 'visit meetup for more', meetup_url

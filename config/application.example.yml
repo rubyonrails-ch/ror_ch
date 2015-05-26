@@ -1,4 +1,5 @@
 meetup_group_id: "1700659"
+meetup_group_slug: "rubyonrails-ch"
 
 development:
   secret_key_base: "123"
