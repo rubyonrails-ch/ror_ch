@@ -1,9 +1,6 @@
 class MeetupJob < ActiveJob::Base
   include FistOfFury::Recurrent
 
-  queue_as :default
-  recurs { hourly(1) }
-
   def perform
     meetup = Meetup.new
     meetup.events.each do |result|
