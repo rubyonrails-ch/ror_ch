@@ -6,13 +6,13 @@
         %span.label.label-default= event.time.to_s(:short)
       .col-md-10
         - event_link = link_to event.name, event.url
-        - if is_next
-          %h3= event_link
+        - unless is_next
+          %h4= event_link
         - else
           %h4= event_link
-        %p= link_to event.address, maps_url(event.address), class: 'address' if event.address
+          %p= link_to event.address, maps_url(event.address), class: 'address' if event.address
 
-        = render 'participants', participants: event.participants if is_next
+          = render 'participants', participants: event.participants
 
   %li.event.row.more
     .col-md-2
