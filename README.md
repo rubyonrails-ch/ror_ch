@@ -14,9 +14,9 @@ Very simple single page app for rubyonrails.ch - http://rorch.herokuapp.com
 
 ### Code style
 
-```rubocop```
+```rubocop --auto-correct```
 
-## Inspiration
+## Inspiration
 
 * http://techup.ch/
 * http://hamburg.onruby.de/
