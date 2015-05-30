@@ -17,5 +17,6 @@
 /tmp
 /.idea
 
-# Ignore application configuration
-/config/application.yml
+# Ignore secrets configuration
+# every developer has to use their own keys
+/config/secrets.yml
