@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every :hour do
-  MeetupJob.new.perform
+  runner 'MeetupJob.new.perform'
 end
