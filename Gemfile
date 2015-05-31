@@ -17,6 +17,9 @@ gem 'therubyracer', platforms: :ruby
 
 # app
 gem 'ruby_meetup2' # meetup api client
+
+# hosting
+gem 'unicorn'
 gem 'rollbar', '~> 1.5.1' # error reporting
 gem 'whenever', require: false
 
