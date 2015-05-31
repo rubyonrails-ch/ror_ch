@@ -3,8 +3,8 @@ ruby '2.2.2'
 
 # essentials
 gem 'rails', '4.2.1'
-gem 'mongoid', '~> 4.0.0'
 gem 'multi_json'
+gem 'pg'
 
 # frontend
 gem 'haml'
@@ -12,23 +12,28 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'execjs'
+gem 'therubyracer', platforms: :ruby
 
 # app
 gem 'ruby_meetup2' # meetup api client
-gem 'figaro' # rails app configuration via ENV
+
+# hosting
+gem 'unicorn'
 gem 'rollbar', '~> 1.5.1' # error reporting
-gem 'sucker_punch' # background processing
-gem 'fist_of_fury' # recurring jobs for sucker_punch
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring' # app preloader
   gem 'rubocop', require: false # ruby style guide
-end
 
-group :production do
-  gem 'rails_12factor' # heroku rails compatibility
+  # Deployment
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv', require: false
 end
 
 group :test do
@@ -36,7 +41,6 @@ group :test do
   gem 'minitest-reporters' # test output formatting
   gem 'mocha' # mocking
   gem 'fabrication' # fixtures
-  gem 'database_cleaner'
   gem 'codeclimate-test-reporter', require: false
   gem 'webmock' # mocking http calls
   gem 'vcr' # recording http calls for mocking

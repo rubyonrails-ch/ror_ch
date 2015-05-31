@@ -9,7 +9,13 @@ Very simple rails app for the Swiss Rails usergroup to coexist with our meetup.c
 
 Create a configuration file for your local environment and configure `meetup_api_key` to use your own [Meetup API key](https://secure.meetup.com/meetup_api/key/)
 
-```cp config/application.example.yml config/application.yml```
+```cp config/secrets.example.yml config/secrets.yml```
+
+### Import from meetup
+
+Once configured with your meetup API key you may import current meetups using
+
+```rails r MeetupJob.new.perform```
 
 ## Contribute
 

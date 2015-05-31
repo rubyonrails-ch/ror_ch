@@ -1,2 +1,4 @@
+require 'yaml'
 require 'ruby_meetup'
-RubyMeetup::ApiKeyClient.key = Figaro.env.meetup_api_key
+
+RubyMeetup::ApiKeyClient.key = Rails.application.secrets.meetup_api_key
