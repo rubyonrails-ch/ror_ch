@@ -31,6 +31,18 @@ Please open a pull request with your changes. Have a look at [the issues](https:
 
 ```rubocop --auto-correct```
 
+### Deploy
+
+Send your ssh key to nico@panter.ch to get access to the servers. 
+
+For staging server deploy use:
+
+```bundle exec cap staging deploy```
+
+For production server deploy use:
+
+```bundle exec cap production deploy```
+
 ## Ecosystem
 
 Request access to these services by contacting one of the maintainers.
