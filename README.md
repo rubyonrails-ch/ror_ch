@@ -41,6 +41,7 @@ Once configured with your meetup API and set up the database key you may import 
 `rails r MeetupJob.new.perform`
 
 ### Troubleshooting
+
 In case you changed the secrets.yml with your API key and the above command didn't work (for example it returns `unauthorized`), try restarting spring.
 
 ### Run the server
@@ -81,7 +82,7 @@ For production server deploy use:
 
 Request access to these services by contacting one of the maintainers.
 
-* Hosting: https://heroku.com
+* Hosting: https://ungleich.ch
 * Exception tracking: https://rollbar.com
 * Continuous integration: https://codeship.com
 * Code quality / coverage: https://codeclimate.com
