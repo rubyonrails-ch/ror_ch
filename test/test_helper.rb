@@ -28,5 +28,9 @@ module ActiveSupport
         yield
       end
     end
+
+    def perform_job 
+      mock_meetup { MeetupJob.new.perform }
+    end
   end
 end
