@@ -5,11 +5,53 @@ Very simple rails app for the Swiss Rails usergroup to coexist with our meetup.c
 
 ## Getting started
 
-### Configure environment
+### Configure the environment
 
-Create a configuration file for your local environment and configure `meetup_api_key` to use your own [Meetup API key](https://secure.meetup.com/meetup_api/key/)
+Create a configuration file for your local environment and configure `meetup_api_key` to use your own [Meetup API key](https://secure.meetup.com/meetup_api/key/). Create your own secrets.yml file with:
 
-```cp config/application.example.yml config/application.yml```
+`cp config/secrets.example.yml config/secrets.yml`
+
+Paste the Meetup API key in the config/secrets.yml file. The file should now look something like this:
+
+```
+development:
+  secret_key_base: 9abcd93923ajjanbe92392309as9093
+  meetup_api_key: 302390efnaweuigh9832883eha8e8
+  rollbar_access_token: 123
+
+test:
+  secret_key_base: abeccewie824982482989ds8973
+```
+
+### Install missing gems
+
+Install the gems from the gemfile. Run
+
+`bundle install`
+
+or just `bundle` in the console to install the  gems for that project.
+
+### Set up the database
+
+To set up the database in the project run the command:
+
+`rake db:setup`
+
+in the console. This project runs on [postgresql](http://www.postgresql.org/) which you will need to install beforehead if you haven't.
+
+### Import from meetup
+
+Once configured with your meetup API and set up the database key you may import current meetups using
+
+`rails r MeetupJob.new.perform`
+
+### Run the server
+
+start the rails server with
+
+`bundle exec rails server`
+
+alternatively you can run `rails s` as a shorthand for it. The server runs on port 3000 by default so you can access the project by typing [localhost:3000](http://localhost:3000) in your browser.
 
 ## Contribute
 

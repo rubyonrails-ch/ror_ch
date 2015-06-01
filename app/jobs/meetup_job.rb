@@ -1,7 +1,4 @@
 class MeetupJob
-  include SuckerPunch::Job
-  include FistOfFury::Recurrent
-
   def perform
     meetup = Meetup.new
     meetup.events.each do |result|
