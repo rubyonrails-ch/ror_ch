@@ -26,7 +26,7 @@ class MeetupJob
 
   def to_participant(result)
     Participant.new(
-      meetup_id: result.rsvp_id,
+      meetup_rsvp_id: result.rsvp_id,
       name: result.member.name,
       image_url: result.member_photo.try(:thumb_link),
       status: result.response
