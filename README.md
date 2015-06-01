@@ -7,20 +7,15 @@ Very simple rails app for the Swiss Rails usergroup to coexist with our meetup.c
 
 ### Configure the environment
 
-Create a configuration file for your local environment and configure `meetup_api_key` to use your own [Meetup API key](https://secure.meetup.com/meetup_api/key/). Create your own secrets.yml file with:
+Create a configuration file for your local environment and configure `meetup_api_key` to use your own [Meetup API key](https://secure.meetup.com/meetup_api/key/). Create your own secrets.yml file with.
 
-`cp config/secrets.example.yml config/secrets.yml`
+`cp env.example .env`
 
-Paste the Meetup API key in the config/secrets.yml file. The file should now look something like this:
+Paste the Meetup API key in the .env file. The file should now look something like this:
 
 ```
-development:
-  secret_key_base: 9abcd93923ajjanbe92392309as9093
-  meetup_api_key: 302390efnaweuigh9832883eha8e8
-  rollbar_access_token: 123
+MEETUP_API_KEY: 253116536670112a7855465923462b0a
 
-test:
-  secret_key_base: abeccewie824982482989ds8973
 ```
 
 ### Install missing gems
@@ -72,7 +67,7 @@ Please open a pull request with your changes. Have a look at [the issues](https:
 
 ### Deploy
 
-Send your ssh key to nico@panter.ch to get access to the servers. 
+Send your ssh key to nico@panter.ch to get access to the servers.
 
 For staging server deploy use:
 
