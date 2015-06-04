@@ -78,6 +78,10 @@ For production server deploy use:
 
 ```bundle exec cap production deploy```
 
+### Import production data
+
+```bundle exec cap production db:pull```
+
 ## Ecosystem
 
 Request access to these services by contacting one of the maintainers.

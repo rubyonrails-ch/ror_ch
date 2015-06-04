@@ -26,6 +26,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring' # app preloader
   gem 'rubocop', require: false # ruby style guide
+  gem "capistrano-db-tasks", require: false
 end
 
 group :test do
