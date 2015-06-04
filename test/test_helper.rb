@@ -29,7 +29,7 @@ module ActiveSupport
       end
     end
 
-    def perform_job 
+    def perform_job
       mock_meetup { MeetupJob.new.perform }
     end
   end

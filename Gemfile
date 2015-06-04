@@ -7,7 +7,7 @@ gem 'multi_json'
 gem 'pg'
 
 # frontend
-gem 'haml'
+gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

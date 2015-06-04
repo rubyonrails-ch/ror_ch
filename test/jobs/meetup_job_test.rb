@@ -27,5 +27,4 @@ class MeetupJobTest < ActiveJob::TestCase
       perform_job
     end
   end
-
 end
