@@ -11,37 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_150_604_141_012) do
+ActiveRecord::Schema.define(version: 20150606095011) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'events', force: :cascade do |t|
-    t.string 'meetup_id'
-    t.string 'name'
-    t.text 'description'
-    t.datetime 'time'
-    t.string 'url'
-    t.string 'status'
-    t.string 'address'
-    t.datetime 'created_at',  null: false
-    t.datetime 'updated_at',  null: false
+  create_table "events", force: :cascade do |t|
+    t.string   "meetup_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "time"
+    t.string   "url"
+    t.string   "status"
+    t.string   "address"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table 'jobs', force: :cascade do |t|
-    t.string 'title'
-    t.string 'url'
-    t.text 'description'
-    t.datetime 'created_at',  null: false
-    t.datetime 'updated_at',  null: false
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "short_description"
   end
 
-  create_table 'participants', force: :cascade do |t|
-    t.integer 'event_id'
-    t.string 'meetup_rsvp_id'
-    t.string 'name'
-    t.string 'image_url'
-    t.string 'status'
-    t.datetime 'created_at',     null: false
-    t.datetime 'updated_at',     null: false
+  create_table "participants", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "meetup_rsvp_id"
+    t.string   "name"
+    t.string   "image_url"
+    t.string   "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
 end

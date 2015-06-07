@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   def destroy
     @job.destroy
-    redirect_to jobs_url, notice: 'Job was successfully destroyed.'
+    redirect_to root_path, notice: 'Job was successfully destroyed.'
   end
 
   private
@@ -54,6 +54,6 @@ class JobsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def job_params
-    params.require(:job).permit(:title, :url, :description)
+    params.require(:job).permit(:title, :url, :short_description, :description)
   end
 end
