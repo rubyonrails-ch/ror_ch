@@ -238,11 +238,11 @@ p {
   .participants {
     color: black;
     display: none;
-    margin-top: 10px;
+    margin-top: $space;
     position: absolute;
     width: 300px;
     z-index: 100;
-    margin-left: -260px;
+    margin-left: -234px;
     img {
       padding: 0;
       width: 40px;
@@ -260,7 +260,6 @@ p {
   float: left;
   margin: 20px;
   color: white;
-  margin-bottom: 300px;
 
   img {
     width: 150px;
@@ -298,4 +297,42 @@ p {
     transform: rotate(90deg);
     transition: 0.3s;
   }
+}
+
+.field {
+  input, textarea {
+    width: 100%;
+    font-size: $font-size-h3;
+    padding: $space;
+    outline: none;
+    border: none;
+    margin-bottom: $space;
+    background-color: rgba(247, 247, 247, 0.6);
+
+  }
+  ::-webkit-input-placeholder {
+    color: white;
+  }
+  :-moz-placeholder {
+    color: white;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    color: white;
+    opacity: 1;
+  }
+  :-ms-input-placeholder {
+    color: white;
+  }
+}
+
+.actions {
+  input {
+    padding: $space;
+    width: 50%;
+  }
+}
+
+.back {
+  padding: $space 0;
 }

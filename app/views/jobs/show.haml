@@ -1,8 +1,12 @@
-%h2 This job was posted on the Ruby on Rails Switzerland website.
+.tile
+  .content
+    %h2 This job was posted on the Ruby on Rails Switzerland website.
 
-  %p#notice= notice
+    %p#notice= notice
 
-= render partial: 'job', locals: { job: @job }
+    = render partial: 'job', locals: { job: @job }
 
-= link_to 'Back to Ruby on Rails Switzerland', root_path
-= button_to 'Delete this job', job_path(@job), data: { confirm: 'do you really want to delete this job?' }, method: :delete
+    %p
+      = link_to 'Back to Ruby on Rails Switzerland', root_path
+    %p
+      = link_to 'Delete this job', job_path(@job), data: { confirm: 'do you really want to delete this job?' }, method: :delete
