@@ -1,0 +1,18 @@
+= form_for @job do |f|
+  - if @job.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@job.errors.count, "error")} prohibited this job from being saved:"
+      %ul
+        - @job.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.text_field :title, placeholder: :title
+  .field
+    = f.text_field :url, placeholder: :url
+  .field
+    = f.text_field :short_description, placeholder: :short_description
+  .field
+    = f.text_area :description, placeholder: :description
+  .actions
+    = f.submit 'Save'

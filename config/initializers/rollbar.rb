@@ -1,9 +1,11 @@
+require 'yaml'
 require 'rollbar/rails'
+
 Rollbar.configure do |config|
   # Without configuration, Rollbar is enabled in all environments.
   # To disable in specific environments, set config.enabled=false.
 
-  config.access_token = Figaro.env.rollbar_access_token
+  config.access_token = Rails.application.secrets.rollbar_access_token
 
   # Here we'll disable in 'test':
   config.enabled = false if Rails.env.test?
@@ -30,7 +32,4 @@ Rollbar.configure do |config|
   #
   # You can also specify a callable, which will be called with the exception instance.
   # config.exception_level_filters.merge!('MyCriticalException' => lambda { |e| 'critical' })
-
-  # Enable asynchronous reporting (using sucker_punch)
-  config.use_sucker_punch
 end

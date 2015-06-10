@@ -17,5 +17,5 @@
 /tmp
 /.idea
 
-# Ignore application configuration
-/config/application.yml
+# developer specific configuration, see README.md
+.env
