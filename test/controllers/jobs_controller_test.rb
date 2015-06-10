@@ -5,12 +5,6 @@ class JobsControllerTest < ActionController::TestCase
     @job = Fabricate(:job)
   end
 
-  test 'should get index' do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:jobs)
-  end
-
   test 'should get new' do
     get :new
     assert_response :success
@@ -44,6 +38,6 @@ class JobsControllerTest < ActionController::TestCase
       delete :destroy, id: @job
     end
 
-    assert_redirected_to jobs_path
+    assert_redirected_to root_path
   end
 end
