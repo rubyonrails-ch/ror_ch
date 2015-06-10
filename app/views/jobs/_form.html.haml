@@ -7,13 +7,12 @@
           %li= msg
 
   .field
-    = f.label :title
-    = f.text_field :title
+    = f.text_field :title, placeholder: :title
   .field
-    = f.label :url
-    = f.text_field :url
+    = f.text_field :url, placeholder: :url
   .field
-    = f.label :description
-    = f.text_area :description
+    = f.text_field :short_description, placeholder: :short_description
+  .field
+    = f.text_area :description, placeholder: :description
   .actions
     = f.submit 'Save'

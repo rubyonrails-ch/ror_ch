@@ -14,6 +14,10 @@ class Meetup
     call_api('rsvps', event_id: event_meetup_id)
   end
 
+  def join(event_meetup_id)
+    result = client.post_path("/2/rsvp", event_id: event_meetup_id, rsvp: 'Yes')
+  end
+
   private
 
   def call_api(path, params)

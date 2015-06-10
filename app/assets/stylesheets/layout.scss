@@ -1,0 +1,338 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  background-color: rgb(38, 54, 90);
+  background-image: url(RubyonRails_bg_v01-01.svg);
+  background-size: 150%;
+  background-position: 0% 0%;
+  background-repeat: repeat, no-repeat;
+}
+
+@media screen and (min-width: 320px) {
+  .content {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .content {
+    max-width: 600px;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .content {
+    max-width: 800px;
+  }
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255,255,255,0.8);
+  z-index: 1;
+  display: none;
+}
+
+header {
+  margin-top: 10%;
+  color: white;
+  .logo {
+    margin-bottom: 10%;
+    text-align: center;
+    height: auto;
+    width: 100%;
+
+    &:after {
+      content: '+';
+      position: absolute;
+      font-weight: bold;
+      font-size: 35px;
+      top: 76px;
+      margin-left: -11px;
+    }
+  }
+  img {
+    width: 100px;
+  }
+}
+
+#info {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10%;
+}
+
+h1 {
+  color: $primary-font-color;
+  font-size: $font-size-h1;
+  line-height: $line-height-h1;
+  font-weight: bold;
+}
+
+h2 {
+  color: $primary-font-color;
+  font-size: $font-size-h2;
+  line-height: $line-height-h2;
+  font-weight: bold;
+}
+
+h3 {
+  color: $primary-font-color;
+  font-size: $font-size-h3;
+  line-height: $line-height-h3;
+  font-weight: bold;
+}
+
+.lead {
+  color: $primary-font-color;
+  font-size: $font-size-lead;
+  line-height: $line-height-lead;
+  font-weight: 200;
+}
+
+p {
+  color: $primary-font-color;
+  font-size: $font-size-p;
+  line-height: $line-height-p;
+  font-weight: 200;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#events {
+  background-color: rgba(247, 247, 247, 0.6);
+  align-content: center;
+  margin-bottom: 100px;
+  padding: $space 0;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.events-container {
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.event {
+  list-style-type: none;
+  float: left;
+  color: $primary-font-color;
+
+  &.wrapper {
+    width: 280px;
+    height:280px;
+    margin: 10px;
+    padding: $space;
+    background-color: $ruby-color;
+    position: relative;
+
+    &:hover {
+      background-color: darken($ruby-color, 3%);
+    }
+
+    .ruby {
+      text-align: center;
+      margin-top: $space/2;
+
+      img {
+        width: 25px;
+      }
+    }
+
+  }
+
+  &.link {
+    position: relative;
+
+    a {
+      text-decoration: none;
+    }
+  }
+  .time {
+    float: left;
+    position: relative;
+  }
+}
+
+.read-more {
+  width: 100%;
+  display: inline-block;
+  clear: both;
+  text-align: center;
+  margin: 20px 0;
+  transition: 0.2s;
+
+  &:hover {
+    color: $ruby-color;
+    transition: 0.2s;
+  }
+}
+
+.tile {
+  color: white;
+  height: auto;
+  min-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    padding: $space;
+  }
+}
+
+.join-meetup {
+  position: absolute;
+  bottom: $space;
+  left: $space;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: $blue;
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: bold;
+
+  &:hover {
+    text-shadow: 0px 0px 2px white;
+  }
+}
+
+
+.participants-toggle {
+  position: absolute;
+  right: $space;
+  bottom: $space;
+
+  img {
+    border: 1px solid $blue;
+    width: 40px;
+    padding: 5px;
+    border-radius: 100%;
+  }
+  .participants {
+    color: black;
+    display: none;
+    margin-top: $space;
+    position: absolute;
+    width: 300px;
+    z-index: 100;
+    margin-left: -234px;
+    img {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+    }
+
+    .participant {
+      background: rgba(247, 247, 247, 0.9);
+      margin: 10px;
+    }
+  }
+}
+
+.sponsor {
+  float: left;
+  margin: 20px;
+  color: white;
+
+  img {
+    width: 150px;
+  }
+
+}
+
+.job-wrapper {
+  background-color: rgba(247, 247, 247, 0.6);
+  margin-bottom: 20px;
+  padding: 10px;
+  color: black;
+
+  h3 {
+    margin: 0;
+    color: $blue;
+  }
+  p {
+    color: black;
+  }
+
+  .long-description {
+    display: none;
+  }
+}
+
+.expand-jobs {
+  position: relative;
+  float: left;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-right: $space/2;
+
+  .expanded {
+    transform: rotate(90deg);
+    transition: 0.3s;
+  }
+}
+
+.field {
+  input, textarea {
+    width: 100%;
+    font-size: $font-size-h3;
+    padding: $space;
+    outline: none;
+    border: none;
+    margin-bottom: $space;
+    background-color: rgba(247, 247, 247, 0.6);
+
+  }
+  ::-webkit-input-placeholder {
+    color: white;
+  }
+  :-moz-placeholder {
+    color: white;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    color: white;
+    opacity: 1;
+  }
+  :-ms-input-placeholder {
+    color: white;
+  }
+}
+
+.actions {
+  input {
+    padding: $space;
+    width: 50%;
+  }
+}
+
+.back {
+  padding: $space 0;
+}
