@@ -1,20 +1,54 @@
-%ul.events.list-unstyled
-  - @events.each_with_index do |event, index|
-    - is_next = index == 0
-    %li{ class: ['event', 'row', ('next' if is_next)] }
-      .col-md-2.text-right
-        %span.label.label-default= event.time.to_s(:short)
-      .col-md-10
-        - event_link = link_to event.name, event.url
-        - unless is_next
-          %h4= event_link
-        - else
-          %h4= event_link
-          %p= link_to event.address, maps_url(event.address), class: 'address' if event.address
+#info.tile
+  .content
+    %h1 Ruby on Rails Switzerland
+    %p.lead Are you living in Switzerland and like to program in Ruby? Are you looking for like-minded people to exchange ideas, engage in projects or just to have a beer? Look no further.
 
+#events.tile
+  %h2 upcoming events
+  .events-container
+    - @events.each_with_index do |event, index|
+      - is_next = index == 0
+      %div{ class: ['event wrapper', ('next' if is_next)] }
+        .ruby= image_tag 'RubyonRails_gem_v01-01.svg'
+        .event.link
+          - event_link = link_to event.name, event.url
+          %h3= event_link
+          %p.address
+            - if event.address
+              =link_to event.time.to_s(:short) + ' | ' + event.address, maps_url(event.address)
+            - else
+              = event.time.to_s(:short) + ' | to be defined'
+
+        .join-meetup{ id: event.meetup_id }
+          Attend
+
+        .participants-toggle
+          = image_tag 'ic_people_48px.svg'
           = render 'participants', participants: event.participants
 
-  %li.event.row.more
-    .col-md-2
-    .col-md-10
-      = link_to 'visit meetup for more', meetup_url
+  .read-more
+    = link_to 'visit meetup for more', meetup_url
+
+#topics.tile
+  .content
+    %h2 Next / Previous Topics
+    %p please post here which topics you would want to hear about it soon.
+
+#jobs.tile
+  .content
+    %h2 Jobs
+    - @jobs.each do |job|
+      = render 'jobs/job', job: job
+
+#sponsors.tile
+  .content
+    %h2 Sponsors
+    %p We would like to thank our sponsors for the great support they provide us so that we can regularly held events in their locations.
+
+    .sponsor= image_tag 'sponsors/panter.png', id: 'patner'
+    .sponsor= image_tag 'sponsors/impact-hub.png', id: 'impact-hub'
+    .sponsor= image_tag 'sponsors/ungleich.jpg', id: 'ungleich'
+    .sponsor= image_tag 'sponsors/simplificator.png', id: 'simplificator'
+
+
+

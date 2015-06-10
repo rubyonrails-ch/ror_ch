@@ -9,7 +9,6 @@ require 'minitest/reporters'
 require 'mocha/mini_test'
 
 Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new]
-DatabaseCleaner[:mongoid].strategy = :truncation
 
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr'
@@ -19,20 +18,19 @@ end
 
 module ActiveSupport
   class TestCase
-    def setup
-      DatabaseCleaner.clean # reset database
-      super
-    end
-
     def teardown
-      ActionMailer::Base.deliveries.clear
       super
+      ActionMailer::Base.deliveries.clear
     end
 
     def mock_meetup
       VCR.use_cassette('meetup', record: :new_episodes, match_requests_on: [:method, :host, :path]) do
         yield
       end
+    end
+
+    def perform_job
+      mock_meetup { MeetupJob.new.perform }
     end
   end
 end
