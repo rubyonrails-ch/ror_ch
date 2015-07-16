@@ -1,12 +1,5 @@
-class Participant
-  include Mongoid::Document
-
-  embedded_in :event
-
-  field :meetup_id, type: String
-  field :name, type: String
-  field :image_url, type: String
-  field :status, type: String
+class Participant < ActiveRecord::Base
+  belongs_to :event
 
   validates :meetup_id, presence: true
   validates :name, presence: true

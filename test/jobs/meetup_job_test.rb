@@ -22,4 +22,11 @@ class MeetupJobTest < ActiveJob::TestCase
       perform_job
     end
   end
+
+  it 'should update existing participants' do
+    perform_job
+    assert_no_difference 'Participant.count' do
+      perform_job
+    end
+  end
 end

@@ -26,12 +26,14 @@ class MeetupJob < ActiveJob::Base
   end
 
   def to_participant(result)
-    Participant.new(
+    participant = Participant.find_or_initialize_by(meetup_id: result.rsvp_id)
+    participant.assign_attributes(
       meetup_id: result.rsvp_id,
       name: result.member.name,
       image_url: result.member_photo.try(:thumb_link),
       status: result.response
     )
+    participant
   end
 
   def address_for_venue(venue)
