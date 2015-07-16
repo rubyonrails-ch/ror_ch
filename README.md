@@ -5,11 +5,33 @@ Very simple rails app for the Swiss Rails usergroup to coexist with our meetup.c
 
 ## Getting started
 
-### Configure environment
+### Configure the environment
 
-Create a configuration file for your local environment and configure `meetup_api_key` to use your own [Meetup API key](https://secure.meetup.com/meetup_api/key/)
+Create a configuration file for your local environment with:
 
 ```cp config/application.example.yml config/application.yml```
+
+and configure `meetup_api_key` to use your own [Meetup API key](https://secure.meetup.com/meetup_api/key/).
+
+### Install dependencies
+
+Install the gems from the gemfile. Run:
+
+```bundle install```
+
+### Set up the database
+
+To set up the database run the command:
+
+```rake db:setup```
+
+This project runs on [postgresql](http://www.postgresql.org/) which you will need to install beforehead if you haven't.
+
+### Initial data import from meetup
+
+Once configured with your meetup API and set up the database key you may import current meetups using:
+
+```rails r MeetupJob.new.perform```
 
 ## Contribute
 
