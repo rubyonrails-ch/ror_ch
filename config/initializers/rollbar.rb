@@ -31,6 +31,6 @@ Rollbar.configure do |config|
   # You can also specify a callable, which will be called with the exception instance.
   # config.exception_level_filters.merge!('MyCriticalException' => lambda { |e| 'critical' })
 
-  # Enable asynchronous reporting (using sucker_punch)
-  config.use_sucker_punch
+  # Enable asynchronous reporting
+  config.use_sidekiq
 end
