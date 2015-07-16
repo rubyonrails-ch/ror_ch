@@ -9,7 +9,7 @@ require 'minitest/reporters'
 require 'mocha/mini_test'
 
 Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new]
-DatabaseCleaner[:mongoid].strategy = :truncation
+DatabaseCleaner.strategy = :truncation
 
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr'

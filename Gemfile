@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # essentials
 gem 'rails', '4.2.1'
-gem 'mongoid', '~> 4.0.0'
+gem 'pg'
 gem 'multi_json'
 gem 'unicorn' # app server
 gem 'sidekiq' # background processing
