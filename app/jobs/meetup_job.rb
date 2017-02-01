@@ -1,5 +1,4 @@
 class MeetupJob < ActiveJob::Base
-
   def perform
     meetup = Meetup.new
     meetup.events.each do |result|

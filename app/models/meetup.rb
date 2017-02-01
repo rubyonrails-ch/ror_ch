@@ -1,5 +1,4 @@
 class Meetup
-
   GROUP_ID = '1700659'
   GROUP_SLUG = 'rubyonrails-ch'
 

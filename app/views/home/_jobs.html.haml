@@ -1,0 +1,20 @@
+%ul.jobs.list-unstyled
+  - @jobs.each_with_index do |job, index|
+    - is_next = index == 0
+    %li{ class: ['job', 'row', ('next' if is_next)] }
+      .col-md-2.text-right
+        %span.label.label-default= job.time.to_s(:short)
+      .col-md-10
+        - job_link = link_to job.name, job.url
+        - unless is_next
+          %h4= job_link
+        - else
+          %h4= job_link
+          %p= link_to job.address, maps_url(job.address), class: 'address' if job.address
+
+          = render 'participants', participants: job.participants
+
+  %li.job.row.more
+    .col-md-2
+    .col-md-10
+      = link_to 'visit meetup for more', meetup_url
